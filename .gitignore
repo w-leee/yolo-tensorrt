@@ -1,46 +1,31 @@
-# Python
-__pycache__/
-*.py[cod]
-venv/
-.venv/
-*.egg-info/
-.pytest_cache/
-.mypy_cache/
+# ==============================
+# 纯 C++ 部署端专用 .gitignore
+# ==============================
 
-# YOLO / 训练
-runs/
-*.cache
-*.pt
-*.pth
-*.onnx
+# 1. 编译产物
+build/
+cmake-build-*/
+*.o
+*.obj
+*.so
+*.a
+
+# 2. 模型文件 (Engine 通常非常大，且与硬件绑定，不建议入 Git)
 *.engine
 *.plan
-weights/
-datasets/
-crack_dataset/
-calib_images/
+# 如果你想把 onnx 也传上去供别人转换，可以保留；如果也不想传，就加上 *.onnx
 
-# 第三方库
+# 3. 本地第三方静态依赖库
 third_party/
-*.tar
-*.tar.gz
 
-# 环境变量
-.env
-.env.*
-
-# IDE
+# 4. IDE 配置 (只保留推荐的插件和属性配置)
 .vscode/*
 !.vscode/c_cpp_properties.json
 !.vscode/extensions.json
 .idea/
 *.swp
-*.swo
 
-# 系统
-.DS_Store
-Thumbs.db
+# 5. 测试运行输出产物
+output*.jpg
+*_result.jpg
 *.log
-
-# 构建产物
-deploy/cpp/build/
