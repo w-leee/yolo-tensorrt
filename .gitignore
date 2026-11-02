@@ -13,15 +13,12 @@ cmake-build-*/
 # 2. 模型文件 (Engine 通常非常大，且与硬件绑定，不建议入 Git)
 *.engine
 *.plan
-# 如果你想把 onnx 也传上去供别人转换，可以保留；如果也不想传，就加上 *.onnx
 
 # 3. 本地第三方静态依赖库
 third_party/
 
-# 4. IDE 配置 (只保留推荐的插件和属性配置)
-.vscode/*
-!.vscode/c_cpp_properties.json
-!.vscode/extensions.json
+# 4. IDE 配置 (彻底忽略所有编辑器配置)
+.vscode/
 .idea/
 *.swp
 
@@ -29,3 +26,7 @@ third_party/
 output*.jpg
 *_result.jpg
 *.log
+
+# 6. Python 缓存 (针对 trt_python 目录)
+__pycache__/
+*.pyc
