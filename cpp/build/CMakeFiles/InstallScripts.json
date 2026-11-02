@@ -1,7 +1,0 @@
-{
-	"InstallScripts" : 
-	[
-		"/home/wangle/workspace/yolo_trt/yolo-trt-deploy/cpp/build/cmake_install.cmake"
-	],
-	"Parallel" : false
-}

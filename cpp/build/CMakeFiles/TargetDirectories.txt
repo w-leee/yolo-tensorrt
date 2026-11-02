@@ -1,3 +1,0 @@
-/home/wangle/workspace/yolo_trt/yolo-trt-deploy/cpp/build/CMakeFiles/yolo_trt_demo.dir
-/home/wangle/workspace/yolo_trt/yolo-trt-deploy/cpp/build/CMakeFiles/edit_cache.dir
-/home/wangle/workspace/yolo_trt/yolo-trt-deploy/cpp/build/CMakeFiles/rebuild_cache.dir
