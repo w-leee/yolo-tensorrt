@@ -10,8 +10,8 @@
 | :--- | :--- | :--- | :--- |
 | PyTorch (Python) | 14.60 ms | 68 | 原始模型纯推理 |
 | TRT FP16 (Python) | 3.72 ms | 269 | 纯推理 (不含前后处理) |
-| TRT INT8 (Python) | 3.53 ms | 221 | 纯推理 (小图调度开销大) |
-| TRT FP16 (C++ 端到端) | 3.73 ms | 267 | 图像解码、预处理、推理、NMS后处理 |
+| TRT FP16 (C++ 纯CPU预处理) | 4.02 ms | 248 | 图像解码、CPU预处理、推理、NMS |
+| **TRT FP16 (C++ + CUDA预处理)** | **3.23 ms** | **308** | **CUDA Kernel 实现 HWC转CHW，极致加速** |
 
 
 ## 📂 项目结构
@@ -27,3 +27,8 @@ yolo-trt-deploy/
 ├── test_images/          # 测试样例图片
 ├── third_party/          # 本地 TensorRT SDK 依赖库
 └── README.md
+```
+## 🗺️ 后续优化路线 (Roadmap)
+- [ ] **零拷贝前处理**：引入 `cv::cuda::GpuMat` 彻底消除 CPU 到 GPU 的显存拷贝开销。
+- [ ] **多线程流水线**：实现生产者-消费者模型，支持多路视频流并发推理。
+- [ ] **量化部署**：完善 INT8 校准流程，在精度允许场景下进一步突破吞吐上限。
