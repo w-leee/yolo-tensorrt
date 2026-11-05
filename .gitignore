@@ -42,3 +42,6 @@ Thumbs.db
 # 运行输出产物
 output*.jpg
 *_result.jpg
+
+# 代码格式化配置
+*.clang-format

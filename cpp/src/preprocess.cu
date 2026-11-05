@@ -1,8 +1,10 @@
 #include <cuda_runtime.h>
 
-__global__ void hwc_to_chw_kernel(const unsigned char* src, float* dst, int total_pixels) {
+__global__ void hwc_to_chw_kernel(const unsigned char* src, float* dst, int total_pixels)
+{
     int i = blockIdx.x * blockDim.x + threadIdx.x;
-    if (i < total_pixels) {
+    if (i < total_pixels)
+    {
         int offset = i * 3;
         unsigned char r = src[offset];
         unsigned char g = src[offset + 1];
@@ -14,7 +16,8 @@ __global__ void hwc_to_chw_kernel(const unsigned char* src, float* dst, int tota
     }
 }
 
-void launch_preprocess_kernel(const unsigned char* d_src, float* d_dst, int total_pixels) {
+void launch_preprocess_kernel(const unsigned char* d_src, float* d_dst, int total_pixels)
+{
     int threads_per_block = 256;
     int blocks = (total_pixels + threads_per_block - 1) / threads_per_block;
     hwc_to_chw_kernel<<<blocks, threads_per_block>>>(d_src, d_dst, total_pixels);
