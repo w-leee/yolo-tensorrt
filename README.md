@@ -9,7 +9,7 @@
 | PyTorch (Python) | 14.60 ms | 68 | 原始模型纯推理 |
 | TRT FP16 (Python) | 3.72 ms | 269 | 纯推理 (不含前后处理) |
 | TRT FP16 (C++ 纯CPU预处理) | 4.02 ms | 248 | 图像解码、CPU预处理、推理、NMS |
-| **TRT FP16 (C++ + CUDA预处理)** | **3.23 ms** | **308** | **CUDA Kernel 实现 HWC转CHW，极致加速** |
+| TRT FP16 (C++ + CUDA预处理) | 3.23 ms | 308 | CUDA Kernel 实现 HWC转CHW，极致加速 |
 
 ## 项目结构
 
